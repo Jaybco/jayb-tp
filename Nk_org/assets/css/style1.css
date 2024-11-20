@@ -1,0 +1,14 @@
+*{
+font-family:Arial;
+}
+
+
+BODY{
+background-color:blue;
+}
+.importante
+BODY{
+font-color:red;
+font-style:italic;
+}
+

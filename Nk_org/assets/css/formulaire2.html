@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+   <title>exercice formulaire</title>  
+   <meta charset="UTF-8"> 
+   <meta name="viewport"content="width=device-with,initial-scale=1.0">
+   <title>interface de saisie</title>
+   <style>
+       body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        form {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Saisie des Données</h1>
+<form id="dataForm">
+    <label for="shape">Choisissez une forme :</label>
+    <select id="shape" name="shape">
+        <option value="carré">Carré</option>
+        <option value="rectangle">Rectangle</option>
+        <option value="cercle">Cercle</option>
+    </select>
+
+    <div id="dimensions">
+        <label for="side">Côté (pour carré) :</label>
+        <input type="number" id="side" name="side" placeholder="Entrez la longueur du côté" />
+
+        <label for="width">Largeur (pour rectangle) :</label>
+        <input type="number" id="width" name="width" placeholder="Entrez la largeur" />
+
+        <label for="height">Hauteur (pour rectangle) :</label>
+        <input type="number" id="height" name="height" placeholder="Entrez la hauteur" />
+
+        <label for="radius">Rayon (pour cercle) :</label>
+        <input type="number" id="radius" name="radius" placeholder="Entrez le rayon" />
+    </div>
+
+    <button type="submit">Soumettre</button>
+</form>
+
+<script>
+    const shapeSelect = document.getElementById('shape');
+    const sideInput = document.getElementById('side');
+    const widthInput = document.getElementById('width');
+    const heightInput = document.getElementById('height');
+    const radiusInput = document.getElementById('radius');
+
+    shapeSelect.addEventListener('change', function() {
+        const shape = shapeSelect.value;
+
+        // Réinitialiser tous les champs
+        sideInput.style.display = 'none';
+        widthInput.style.display = 'none';
+        heightInput.style.display = 'none';
+        radiusInput.style.display = 'none';
+
+        if (shape === 'carré') {
+            sideInput.style.display = 'block';
+        } else if (shape === 'rectangle') {
+            widthInput.style.display = 'block';
+            heightInput.style.display = 'block';
+        } else if (shape === 'cercle') {
+            radiusInput.style.display = 'block';
+        }
+    });
+
+    document.getElementById('dataForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // Récupérer les valeurs saisies
+        const shape = shapeSelect.value;
+        const side = sideInput.value;
+        const width = widthInput.value;
+        const height = heightInput.value;
+        const radius = radiusInput.value;
+
+        // Afficher les données dans la console
+        console.log(`Forme choisie : ${shape}`);
+
+if (shape === 'carré') {
+            console.log(`Côté : ${side}`);
+        } else if (shape === 'rectangle') {
+            console.log(`Largeur : ${width}, Hauteur : ${height}`);
+        } else if (shape === 'cercle') {
+            console.log(`Rayon : ${radius}`);
+        }
+        
+        // Vous pouvez également ajouter ici des actions supplémentaires,
+        // comme envoyer les données à un serveur.
+    });
+</script>
+
+</body>
+</html>
+
+   </style>
+   
+
+
+<script src="./..//PDF/script2.js"></script>
+  </head>
+  <body> 
